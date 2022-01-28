@@ -4,8 +4,8 @@ const movies = document.getElementById('movies').children
 const btns = document.getElementsByClassName('cycle-btn')
 const searchInput = document.getElementById('movie-search')
 const queryList = document.getElementById('query-list')
-
-console.log(movies)
+const movieNames = getMovieNames(movies)
+const searchBar = document.getElementById('search-bar')
 
 function btnDown(btn) {
     btn.classList.add('btn-click')
@@ -66,18 +66,27 @@ function getMovieNames (obj) {
     return list
 }
 
+searchBar.addEventListener('mouseover', function () {
+    searchInput.classList.add('search-field-appear')
+})
+
+searchBar.addEventListener('mouseleave', function () {
+    setTimeout(function() {
+        searchInput.classList.remove('search-field-appear')
+        // queryList.innerHTML = ''
+        // searchInput.value = ''
+    }, 1000) 
+})
+
 searchInput.addEventListener('keyup', handleInput)
 
 function handleInput (event) {
     const searchQuery = event.target.value.toLowerCase()
-    const movieNames = getMovieNames(movies)
-
     let filteredMovies = movieNames.filter(movie => {
         if (searchQuery !== '') {
             return movie.includes(searchQuery)
         }
     })
-    
     renderResults(filteredMovies)
 }
 
@@ -91,27 +100,27 @@ function renderMovie (title) {
     newListItem.classList.add('query-result')
     newListItem.textContent = titleCase(title)
     queryList.appendChild(newListItem)
-    // console.log(newListItem)
     const movieLinks = queryList.querySelectorAll('.query-result')
     movieLinks.forEach(link => { //shit not working
         link.addEventListener('click', () => {
-            // console.log(link)
+            queryList.innerHTML = ''
+            searchInput.value = ''
             viewQueriedMovie(link.textContent)
+            searchInput.classList.remove('search-field-appear')
         })
     })
-
-    // console.log(movieLinks)
 }
 
-function viewQueriedMovie(title) { //this only seems to work on movies with one word titles
-    console.log(title.toLowerCase())
+function viewQueriedMovie(title) {
     hideAllSlides()
-    
-    for (let index of movies) {
-        console.log(index.id)
-        if(index.id.includes(title.toLowerCase())) { //this line of logic needs to be adjusted
-            console.log(index)
-            index.classList.add('next')
+    for (let i = 0; i < movieNames.length; i++) {
+        if (movieNames[i].includes(title.toLowerCase())) {
+            if (i > slidePosition) {
+                movies[i].classList.add('next')
+            } else {
+                movies[i].classList.add('prev')
+            }
+            slidePosition = i
         }
     }
 }

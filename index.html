@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script async src="script.js"></script>
     <title>0xjosiah's Favorite Movies</title>
@@ -15,25 +15,15 @@
     <header class="hero">
         <div class="title">
             <h1>0xjosiah Theatre</h1>
-            <h2>Now Showing</h2>
+            <!-- <h2>Now Showing</h2> -->
         </div>
-        <div class="search-box">
+        <div class="search-box" id="search-bar">
             <div class="search-field">
-                <img src="../images/search.svg" alt="search icon">
-                <input type="text" id="movie-search">
+                <img src="../images/search.svg" alt="search icon" id="search-icon">
+                <input type="text" id="movie-search" placeholder="search">
             </div>
             <div class="search-results">
-                <ol id="query-list">
-                    <!-- <li class="query-result">
-                        <a href="#" class="movie-link">Inception</a>
-                    </li>
-                    <li class="query-result">
-                        <a href="http://net-informations.com/js/iq/unerror.htm" target="_blank" class="movie-link">interstellar</a>
-                    </li>
-                    <li class="query-result">
-                        <a href="#" class="movie-link">Star Wars</a>
-                    </li> -->
-                </ol>
+                <ol id="query-list"></ol>
             </div>
         </div>
     </header>
