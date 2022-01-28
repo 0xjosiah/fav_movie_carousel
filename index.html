@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script async src="script.js"></script>
     <title>0xjosiah's Favorite Movies</title>
@@ -15,8 +18,23 @@
             <h2>Now Showing</h2>
         </div>
         <div class="search-box">
-            <img src="../images/search.svg" alt="search icon">
-            <input type="text">
+            <div class="search-field">
+                <img src="../images/search.svg" alt="search icon">
+                <input type="text" id="movie-search">
+            </div>
+            <div class="search-results">
+                <ol id="query-list">
+                    <!-- <li class="query-result">
+                        <a href="#" class="movie-link">Inception</a>
+                    </li>
+                    <li class="query-result">
+                        <a href="http://net-informations.com/js/iq/unerror.htm" target="_blank" class="movie-link">interstellar</a>
+                    </li>
+                    <li class="query-result">
+                        <a href="#" class="movie-link">Star Wars</a>
+                    </li> -->
+                </ol>
+            </div>
         </div>
     </header>
     <section>
@@ -24,14 +42,13 @@
         <button id="next" class="cycle-btn" aria-label="next movie">></button>
         <div class="carousel">
             <ul id="movies">
-                <li class="carousel-item-visible"><img class="movie" src="../images/inception.jpeg" alt="inception movie poster"></li>
-                <li class=""><img class="movie" src="../images/dark_knight.jpeg" alt="batman the dark knight movie poster"></li>
-                <li class=""><img class="movie" src="../images/django.jpeg" alt="django movie poster"></li>
-                <li class=""><img class="movie" src="../images/gwh.jpeg" alt="good will hunting movie poster"></li>
-                <li class=""><img class="movie" src="../images/interstellar.jpeg" alt="interstellar movie poster"></li>
-                <li class=""><img class="movie" src="../images/lotr.jpeg" alt="lord of the rings movie poster"></li>
-                <li class=""><img class="movie" src="../images/star_wars.jpeg" alt="star wars movie poster"></li>
-                <li class=""><img class="movie" src="../images/superbad.jpeg" alt="superbad movie poster"></li>
+                <li class="movie carousel-item-visible" id="inception"><img src="../images/inception.jpeg" alt="inception movie poster"></li>
+                <li class="movie" id="batman-the-dark-knight"><img src="../images/dark_knight.jpeg" alt="batman the dark knight movie poster"></li>
+                <li class="movie" id="django"><img src="../images/django.jpeg" alt="django movie poster"></li>
+                <li class="movie" id="good-will-hunting"><img src="../images/gwh.jpeg" alt="good will hunting movie poster"></li>
+                <li class="movie" id="interstellar"><img src="../images/interstellar.jpeg" alt="interstellar movie poster"></li>
+                <li class="movie" id="star-wars"><img src="../images/star_wars.jpeg" alt="star wars movie poster"></li>
+                <li class="movie" id="superbad"><img src="../images/superbad.jpeg" alt="superbad movie poster"></li>
             </ul>
         </div>
     </section>

@@ -1,31 +1,117 @@
 const nextBtn = document.getElementById('next')
 const prevBtn = document.getElementById('previous')
 const movies = document.getElementById('movies').children
+const btns = document.getElementsByClassName('cycle-btn')
+const searchInput = document.getElementById('movie-search')
+const queryList = document.getElementById('query-list')
 
 console.log(movies)
 
+function btnDown(btn) {
+    btn.classList.add('btn-click')
+}
 
-let count = 0
-nextBtn.addEventListener('click', function() {
-    if (count < 7) {
-        count += 1
-        movies[count-1].classList.remove('carousel-item-visible')
-        movies[count].classList.add('carousel-item-visible')
-    } else {
-        count -= 7
-        movies[count+7].classList.remove('carousel-item-visible')
-        movies[count].classList.add('carousel-item-visible')
+function btnUp (btn) {
+    btn.classList.remove('btn-click')
+}
+
+nextBtn.addEventListener('mousedown', function() {btnDown(this)})
+nextBtn.addEventListener('mouseup', function() {btnUp(this)})
+prevBtn.addEventListener('mousedown', function() {btnDown(this)})
+prevBtn.addEventListener('mouseup', function() {btnUp(this)})
+
+function hideAllSlides() {
+    for (let movie of movies) {
+        movie.classList.remove('next')
+        movie.classList.remove('prev')
+        movie.classList.remove('carousel-item-visible')
     }
+}
+
+let slidePosition = 0
+
+nextBtn.addEventListener('click', function() {
+    hideAllSlides()
+    if (slidePosition == movies.length-1) {
+        slidePosition = 0
+    } else {
+        slidePosition++
+    }
+    movies[slidePosition].classList.add('next')
 })
 
 prevBtn.addEventListener('click', function() {
-    if (count > 0 && count < 8) {
-        count -= 1
-        movies[count+1].classList.remove('carousel-item-visible')
-        movies[count].classList.add('carousel-item-visible')
+    hideAllSlides()
+    if (slidePosition == 0) {
+        slidePosition = movies.length-1
     } else {
-        count += 7
-        movies[count].classList.add('carousel-item-visible')
-        movies[count-7].classList.remove('carousel-item-visible')
+       slidePosition--
     } 
+    movies[slidePosition].classList.add('prev')
 })
+
+function titleCase(str) {
+    return str.toLowerCase().split(' ').map(function(word) {
+      return word.replace(word[0], word[0].toUpperCase());
+    }).join(' ');
+}
+
+function getMovieNames (obj) {
+    let list = []
+    for (let item of obj) {
+        let altTitles = item.children[0].alt.toLowerCase()
+        let title = altTitles.replace(/\b( movie poster)\b/, '')
+        list.push(title)
+    }
+    return list
+}
+
+searchInput.addEventListener('keyup', handleInput)
+
+function handleInput (event) {
+    const searchQuery = event.target.value.toLowerCase()
+    const movieNames = getMovieNames(movies)
+
+    let filteredMovies = movieNames.filter(movie => {
+        if (searchQuery !== '') {
+            return movie.includes(searchQuery)
+        }
+    })
+    
+    renderResults(filteredMovies)
+}
+
+function renderResults (arr) {
+    queryList.innerHTML = ''
+    arr.forEach(renderMovie)
+}
+
+function renderMovie (title) {
+    let newListItem = document.createElement('li')
+    newListItem.classList.add('query-result')
+    newListItem.textContent = titleCase(title)
+    queryList.appendChild(newListItem)
+    // console.log(newListItem)
+    const movieLinks = queryList.querySelectorAll('.query-result')
+    movieLinks.forEach(link => { //shit not working
+        link.addEventListener('click', () => {
+            // console.log(link)
+            viewQueriedMovie(link.textContent)
+        })
+    })
+
+    // console.log(movieLinks)
+}
+
+function viewQueriedMovie(title) { //this only seems to work on movies with one word titles
+    console.log(title.toLowerCase())
+    hideAllSlides()
+    
+    for (let index of movies) {
+        console.log(index.id)
+        if(index.id.includes(title.toLowerCase())) { //this line of logic needs to be adjusted
+            console.log(index)
+            index.classList.add('next')
+        }
+    }
+}
