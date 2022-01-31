@@ -6,6 +6,9 @@ const searchInput = document.getElementById('movie-search')
 const queryList = document.getElementById('query-list')
 const movieNames = getMovieNames(movies)
 const searchBar = document.getElementById('search-bar')
+const openTrailerBtns = document.querySelectorAll('[data-modal-target]')
+const closeModalBtns = document.querySelectorAll('[data-close-modal]')
+const videoPlayers = document.querySelectorAll('.video-player')
 
 function btnDown(btn) {
     btn.classList.add('btn-click')
@@ -123,4 +126,55 @@ function viewQueriedMovie(title) {
             slidePosition = i
         }
     }
+}
+
+openTrailerBtns.forEach(button => {
+    button.addEventListener('click', () => {
+        const modal = document.querySelector(button.dataset.modalTarget)
+        openModal(modal)
+    })
+})
+
+overlay.addEventListener('click', () => {
+    const modals = document.querySelectorAll('.modal.active')
+    modals.forEach(modal => {
+        closeModal(modal)
+    })
+    videoPlayers.forEach(videoPlayer => {
+        videoPlayer.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*')
+    })
+})
+
+window.addEventListener('keydown', (event) => {
+    if(event.key == 'Escape') {
+        const modals = document.querySelectorAll('.modal.active')
+        modals.forEach(modal => {
+            closeModal(modal)
+        })
+        videoPlayers.forEach(videoPlayer => {
+            videoPlayer.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*')
+        })
+    }
+})
+
+closeModalBtns.forEach(button => {
+    button.addEventListener('click', () => {
+        const modal = button.closest('.modal')
+        closeModal(modal)
+        videoPlayers.forEach(videoPlayer => {
+            videoPlayer.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*')
+        })
+    })
+})
+
+function openModal (modal) {
+    if (modal == null) return;
+    modal.classList.add('active')
+    overlay.classList.add('active')
+}
+
+function closeModal (modal) {
+    if (modal == null) return;
+    modal.classList.remove('active')
+    overlay.classList.remove('active')
 }

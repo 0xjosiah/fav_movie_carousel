@@ -32,15 +32,138 @@
         <button id="next" class="cycle-btn" aria-label="next movie">></button>
         <div class="carousel">
             <ul id="movies">
-                <li class="movie carousel-item-visible" id="inception"><img src="../images/inception.jpeg" alt="inception movie poster"></li>
-                <li class="movie" id="batman-the-dark-knight"><img src="../images/dark_knight.jpeg" alt="batman the dark knight movie poster"></li>
-                <li class="movie" id="django"><img src="../images/django.jpeg" alt="django movie poster"></li>
-                <li class="movie" id="good-will-hunting"><img src="../images/gwh.jpeg" alt="good will hunting movie poster"></li>
-                <li class="movie" id="interstellar"><img src="../images/interstellar.jpeg" alt="interstellar movie poster"></li>
-                <li class="movie" id="star-wars"><img src="../images/star_wars.jpeg" alt="star wars movie poster"></li>
-                <li class="movie" id="superbad"><img src="../images/superbad.jpeg" alt="superbad movie poster"></li>
+
+                <li class="movie carousel-item-visible" id="inception">
+                    <img src="../images/inception.jpeg" alt="inception movie poster">
+                    <div class="carousel-item-description">
+                        <h3>Title</h3>
+                        <p>description</p>
+                        <button class="open-trailer-btn" data-modal-target='#modal1'>Watch Trailer</button>
+                    </div>
+                </li>
+
+                <li class="movie" id="batman-the-dark-knight">
+                    <img src="../images/dark_knight.jpeg" alt="batman the dark knight movie poster">
+                    <div class="carousel-item-description">
+                        <h3>Title</h3>
+                        <p>description</p>
+                        <button class="open-trailer-btn" data-modal-target='#modal2'>Watch Trailer</button>
+                    </div>
+                </li>
+
+                <li class="movie" id="django">
+                    <img src="../images/django.jpeg" alt="django movie poster">
+                    <div class="carousel-item-description">
+                        <h3>Title</h3>
+                        <p>description</p>
+                        <button class="open-trailer-btn" data-modal-target='#modal3'>Watch Trailer</button>
+                    </div>
+                </li>
+
+                <li class="movie" id="good-will-hunting">
+                    <img src="../images/gwh.jpeg" alt="good will hunting movie poster">
+                    <div class="carousel-item-description">
+                        <h3>Title</h3>
+                        <p>description</p>
+                        <button class="open-trailer-btn" data-modal-target='#modal4'>Watch Trailer</button>
+                    </div>
+                </li>
+
+                <li class="movie" id="interstellar">
+                    <img src="../images/interstellar.jpeg" alt="interstellar movie poster">
+                    <div class="carousel-item-description">
+                        <h3>Title</h3>
+                        <p>description</p>
+                        <button class="open-trailer-btn" data-modal-target='#modal5'>Watch Trailer</button>
+                    </div>
+                </li>
+
+                <li class="movie" id="star-wars">
+                    <img src="../images/star_wars.jpeg" alt="star wars movie poster">
+                    <div class="carousel-item-description">
+                        <h3>Title</h3>
+                        <p>description</p>
+                        <button class="open-trailer-btn" data-modal-target='#modal6'>Watch Trailer</button>
+                    </div>
+                </li>
+
+                <li class="movie" id="superbad">
+                    <img src="../images/superbad.jpeg" alt="superbad movie poster">
+                    <div class="carousel-item-description">
+                        <h3>Title</h3>
+                        <p>description</p>
+                        <button class="open-trailer-btn" data-modal-target='#modal7'>Watch Trailer</button>
+                    </div>
+                </li>
+
             </ul>
         </div>
+    </section>
+    <section class="modals">
+        <div class="modal" id="modal1">
+            <div class="modal-header">
+                <h3 class="modal-title">title</h3>
+                <button data-close-modal class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe class="video-player" width="560" height="315" src="https://www.youtube.com/embed/lSkiUA6WCAE?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="modal" id="modal2">
+            <div class="modal-header">
+                <h3 class="modal-title"></h3>
+                <button data-close-modal class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe class="video-player" width="560" height="315" src="https://www.youtube.com/embed/lSkiUA6WCAE?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="modal" id="modal3">
+            <div class="modal-header">
+                <h3 class="modal-title">title</h3>
+                <button data-close-modal class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe class="video-player" width="560" height="315" src="https://www.youtube.com/embed/lSkiUA6WCAE?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="modal" id="modal4">
+            <div class="modal-header">
+                <h3 class="modal-title"></h3>
+                <button data-close-modal class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe class="video-player" width="560" height="315" src="https://www.youtube.com/embed/lSkiUA6WCAE?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="modal" id="modal5">
+            <div class="modal-header">
+                <h3 class="modal-title"></h3>
+                <button data-close-modal class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe class="video-player" width="560" height="315" src="https://www.youtube.com/embed/lSkiUA6WCAE?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="modal" id="modal6">
+            <div class="modal-header">
+                <h3 class="modal-title"></h3>
+                <button data-close-modal class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe class="video-player" width="560" height="315" src="https://www.youtube.com/embed/lSkiUA6WCAE?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="modal" id="modal7">
+            <div class="modal-header">
+                <h3 class="modal-title">title</h3>
+                <button data-close-modal class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe class="video-player" width="560" height="315" src="https://www.youtube.com/embed/lSkiUA6WCAE?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div id="overlay" class=""></div>
     </section>
 </body>
 </html>
