@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script async src="script.js"></script>
     <title>0xjosiah's Favorite Movies</title>
@@ -14,13 +14,14 @@
 <body>
     <header class="hero">
         <div class="title">
-            <h1>0xjosiah Theatre</h1>
+            <h1>0xjosiah's <span class="yellow">best</span> <span class="green">of</span></h1>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/PlayStation_2_logo.svg" alt="PlayStation 2 logo">
             <!-- <h2>Now Showing</h2> -->
         </div>
         <div class="search-box" id="search-bar">
             <div class="search-field">
                 <img src="../images/search.svg" alt="search icon" id="search-icon">
-                <input type="text" id="movie-search" placeholder="search">
+                <input type="text" id="search-input" placeholder="search">
             </div>
             <div class="search-results">
                 <ol id="query-list"></ol>
@@ -28,69 +29,69 @@
         </div>
     </header>
     <section>
-        <button id="previous" class="cycle-btn" aria-label="previous movie"><</button>
-        <button id="next" class="cycle-btn" aria-label="next movie">></button>
+        <button id="previous" class="cycle-btn" aria-label="previous game"><</button>
+        <button id="next" class="cycle-btn" aria-label="next game">></button>
         <div class="carousel">
-            <ul id="movies">
+            <ul id="carousel-items">
 
-                <li class="movie carousel-item-visible" id="inception">
-                    <img src="../images/inception.jpeg" alt="inception movie poster">
+                <li class="carousel-card carousel-item-visible" id="carousel-item-1">
+                    <img src="../images/ssx-on-tour.jpeg" alt="ssx on tour poster">
                     <div class="carousel-item-description">
-                        <h3>Title</h3>
+                        <h3>SSX: On Tour</h3>
                         <p>description</p>
                         <button class="open-trailer-btn" data-modal-target='#modal1'>Watch Trailer</button>
                     </div>
                 </li>
 
-                <li class="movie" id="batman-the-dark-knight">
-                    <img src="../images/dark_knight.jpeg" alt="batman the dark knight movie poster">
+                <li class="carousel-card" id="carousel-item-2">
+                    <img src="../images/ratchet-and-clank-deadlocked.jpeg" alt="ratchet deadlocked poster">
                     <div class="carousel-item-description">
-                        <h3>Title</h3>
+                        <h3>Ratchet: Deadlocked</h3>
                         <p>description</p>
                         <button class="open-trailer-btn" data-modal-target='#modal2'>Watch Trailer</button>
                     </div>
                 </li>
 
-                <li class="movie" id="django">
-                    <img src="../images/django.jpeg" alt="django movie poster">
+                <li class="carousel-card" id="carousel-item-3">
+                    <img src="../images/star_wars_battlefront2.jpeg" alt="star wars battlefront 2 poster">
                     <div class="carousel-item-description">
-                        <h3>Title</h3>
+                        <h3>Star Wars: Battlefront II</h3>
                         <p>description</p>
                         <button class="open-trailer-btn" data-modal-target='#modal3'>Watch Trailer</button>
                     </div>
                 </li>
 
-                <li class="movie" id="good-will-hunting">
-                    <img src="../images/gwh.jpeg" alt="good will hunting movie poster">
+                <li class="carousel-card" id="carousel-item-4">
+                    <img src="../images/NFSU2.jpeg" alt="need for speed: underground 2 poster">
                     <div class="carousel-item-description">
-                        <h3>Title</h3>
+                        <h3>Need for Speed: Underground 2</h3>
                         <p>description</p>
                         <button class="open-trailer-btn" data-modal-target='#modal4'>Watch Trailer</button>
                     </div>
                 </li>
 
-                <li class="movie" id="interstellar">
-                    <img src="../images/interstellar.jpeg" alt="interstellar movie poster">
+                <li class="carousel-card" id="carousel-item-5">
+                    <img src="../images/NFSMW.jpeg" alt="need for speed: most wanted poster">
                     <div class="carousel-item-description">
-                        <h3>Title</h3>
+                        <h3>Need for Speed: Most Wanted</h3>
                         <p>description</p>
                         <button class="open-trailer-btn" data-modal-target='#modal5'>Watch Trailer</button>
                     </div>
                 </li>
 
-                <li class="movie" id="star-wars">
-                    <img src="../images/star_wars.jpeg" alt="star wars movie poster">
+                <li class="carousel-card" id="carousel-item-6">
+                    <img src="../images/lort_2_towers.jpeg" alt="the lord of the rings: the two towers poster">
                     <div class="carousel-item-description">
-                        <h3>Title</h3>
+                        <h3>The Lord of the Rings: The Two Towers</h3>
                         <p>description</p>
                         <button class="open-trailer-btn" data-modal-target='#modal6'>Watch Trailer</button>
                     </div>
                 </li>
 
-                <li class="movie" id="superbad">
-                    <img src="../images/superbad.jpeg" alt="superbad movie poster">
+                <li class="carousel-card" id="carousel-item-7">
+                    <img src="../images/madden_04.jpeg" alt="madden nfl 2004 poster">
                     <div class="carousel-item-description">
-                        <h3>Title</h3>
+                        <h3>Madden NFL 2004</h3>
                         <p>description</p>
                         <button class="open-trailer-btn" data-modal-target='#modal7'>Watch Trailer</button>
                     </div>
@@ -133,7 +134,7 @@
                 <button data-close-modal class="close-btn">&times;</button>
             </div>
             <div class="modal-body">
-                <iframe class="video-player" width="560" height="315" src="https://www.youtube.com/embed/lSkiUA6WCAE?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe class="video-player" width="560" height="315" src="https://www.youtube.com/embed/9mXrVQuTiWA?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
         <div class="modal" id="modal5">

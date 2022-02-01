@@ -1,10 +1,10 @@
 const nextBtn = document.getElementById('next')
 const prevBtn = document.getElementById('previous')
-const movies = document.getElementById('movies').children
+const carouselItems = document.getElementById('carousel-items').children
 const btns = document.getElementsByClassName('cycle-btn')
-const searchInput = document.getElementById('movie-search')
+const searchInput = document.getElementById('search-input')
 const queryList = document.getElementById('query-list')
-const movieNames = getMovieNames(movies)
+const carouselItemNames = getCarouselItemNames(carouselItems)
 const searchBar = document.getElementById('search-bar')
 const openTrailerBtns = document.querySelectorAll('[data-modal-target]')
 const closeModalBtns = document.querySelectorAll('[data-close-modal]')
@@ -23,34 +23,34 @@ nextBtn.addEventListener('mouseup', function() {btnUp(this)})
 prevBtn.addEventListener('mousedown', function() {btnDown(this)})
 prevBtn.addEventListener('mouseup', function() {btnUp(this)})
 
-function hideAllSlides() {
-    for (let movie of movies) {
-        movie.classList.remove('next')
-        movie.classList.remove('prev')
-        movie.classList.remove('carousel-item-visible')
+function hideAllCards() {
+    for (let card of carouselItems) {
+        card.classList.remove('next')
+        card.classList.remove('prev')
+        card.classList.remove('carousel-item-visible')
     }
 }
 
-let slidePosition = 0
+let cardPosition = 0
 
 nextBtn.addEventListener('click', function() {
-    hideAllSlides()
-    if (slidePosition == movies.length-1) {
-        slidePosition = 0
+    hideAllCards()
+    if (cardPosition == carouselItems.length-1) {
+        cardPosition = 0
     } else {
-        slidePosition++
+        cardPosition++
     }
-    movies[slidePosition].classList.add('next')
+    carouselItems[cardPosition].classList.add('next')
 })
 
 prevBtn.addEventListener('click', function() {
-    hideAllSlides()
-    if (slidePosition == 0) {
-        slidePosition = movies.length-1
+    hideAllCards()
+    if (cardPosition == 0) {
+        cardPosition = carouselItems.length-1
     } else {
-       slidePosition--
+       cardPosition--
     } 
-    movies[slidePosition].classList.add('prev')
+    carouselItems[cardPosition].classList.add('prev')
 })
 
 function titleCase(str) {
@@ -59,11 +59,11 @@ function titleCase(str) {
     }).join(' ');
 }
 
-function getMovieNames (obj) {
+function getCarouselItemNames (obj) {
     let list = []
     for (let item of obj) {
         let altTitles = item.children[0].alt.toLowerCase()
-        let title = altTitles.replace(/\b( movie poster)\b/, '')
+        let title = altTitles.replace(/\b( poster)\b/, '')
         list.push(title)
     }
     return list
@@ -85,20 +85,20 @@ searchInput.addEventListener('keyup', handleInput)
 
 function handleInput (event) {
     const searchQuery = event.target.value.toLowerCase()
-    let filteredMovies = movieNames.filter(movie => {
+    let filteredCarouselItems = carouselItemNames.filter(card => {
         if (searchQuery !== '') {
-            return movie.includes(searchQuery)
+            return card.includes(searchQuery)
         }
     })
-    renderResults(filteredMovies)
+    renderResults(filteredCarouselItems)
 }
 
 function renderResults (arr) {
     queryList.innerHTML = ''
-    arr.forEach(renderMovie)
+    arr.forEach(renderCarouselCard)
 }
 
-function renderMovie (title) {
+function renderCarouselCard (title) {
     let newListItem = document.createElement('li')
     newListItem.classList.add('query-result')
     newListItem.textContent = titleCase(title)
@@ -108,22 +108,22 @@ function renderMovie (title) {
         link.addEventListener('click', () => {
             queryList.innerHTML = ''
             searchInput.value = ''
-            viewQueriedMovie(link.textContent)
+            viewQueriedCarouselCard(link.textContent)
             searchInput.classList.remove('search-field-appear')
         })
     })
 }
 
-function viewQueriedMovie(title) {
-    hideAllSlides()
-    for (let i = 0; i < movieNames.length; i++) {
-        if (movieNames[i].includes(title.toLowerCase())) {
-            if (i > slidePosition) {
-                movies[i].classList.add('next')
+function viewQueriedCarouselCard(title) {
+    hideAllCards()
+    for (let i = 0; i < carouselItemNames.length; i++) {
+        if (carouselItemNames[i].includes(title.toLowerCase())) {
+            if (i > cardPosition) {
+                carouselItems[i].classList.add('next')
             } else {
-                movies[i].classList.add('prev')
+                carouselItems[i].classList.add('prev')
             }
-            slidePosition = i
+            cardPosition = i
         }
     }
 }
