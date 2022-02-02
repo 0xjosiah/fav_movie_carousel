@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script async src="script.js"></script>
     <title>0xjosiah's Favorite Movies</title>
@@ -14,8 +14,9 @@
 <body>
     <header class="hero">
         <div class="title">
-            <h1>0xjosiah's <span class="yellow">best</span> <span class="green">of</span></h1>
+            <!-- <h1>0xjosiah's</h1> -->
             <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/PlayStation_2_logo.svg" alt="PlayStation 2 logo">
+            <h1 class="sub-logo">Bangers!!</h1>
             <!-- <h2>Now Showing</h2> -->
         </div>
         <div class="search-box" id="search-bar">
@@ -29,16 +30,15 @@
         </div>
     </header>
     <section>
-        <button id="previous" class="cycle-btn" aria-label="previous game"><</button>
-        <button id="next" class="cycle-btn" aria-label="next game">></button>
+        <button id="previous" class="cycle-btn" aria-label="previous game"><img src="../images/triangle.svg" alt="triangle icon"></button>
+        <button id="next" class="cycle-btn" aria-label="next game"><img src="../images/triangle.svg" alt="triangle icon"></button>
         <div class="carousel">
             <ul id="carousel-items">
 
                 <li class="carousel-card carousel-item-visible" id="carousel-item-1">
                     <img src="../images/ssx-on-tour.jpeg" alt="ssx on tour poster">
-                    <div class="carousel-item-description">
+                    <div class="carousel-item-description render-carousel-item-description">
                         <h3>SSX: On Tour</h3>
-                        <p>description</p>
                         <button class="open-trailer-btn" data-modal-target='#modal1'>Watch Trailer</button>
                     </div>
                 </li>
@@ -47,7 +47,6 @@
                     <img src="../images/ratchet-and-clank-deadlocked.jpeg" alt="ratchet deadlocked poster">
                     <div class="carousel-item-description">
                         <h3>Ratchet: Deadlocked</h3>
-                        <p>description</p>
                         <button class="open-trailer-btn" data-modal-target='#modal2'>Watch Trailer</button>
                     </div>
                 </li>
@@ -56,7 +55,6 @@
                     <img src="../images/star_wars_battlefront2.jpeg" alt="star wars battlefront 2 poster">
                     <div class="carousel-item-description">
                         <h3>Star Wars: Battlefront II</h3>
-                        <p>description</p>
                         <button class="open-trailer-btn" data-modal-target='#modal3'>Watch Trailer</button>
                     </div>
                 </li>
@@ -65,7 +63,6 @@
                     <img src="../images/NFSU2.jpeg" alt="need for speed: underground 2 poster">
                     <div class="carousel-item-description">
                         <h3>Need for Speed: Underground 2</h3>
-                        <p>description</p>
                         <button class="open-trailer-btn" data-modal-target='#modal4'>Watch Trailer</button>
                     </div>
                 </li>
@@ -74,7 +71,6 @@
                     <img src="../images/NFSMW.jpeg" alt="need for speed: most wanted poster">
                     <div class="carousel-item-description">
                         <h3>Need for Speed: Most Wanted</h3>
-                        <p>description</p>
                         <button class="open-trailer-btn" data-modal-target='#modal5'>Watch Trailer</button>
                     </div>
                 </li>
@@ -83,7 +79,6 @@
                     <img src="../images/lort_2_towers.jpeg" alt="the lord of the rings: the two towers poster">
                     <div class="carousel-item-description">
                         <h3>The Lord of the Rings: The Two Towers</h3>
-                        <p>description</p>
                         <button class="open-trailer-btn" data-modal-target='#modal6'>Watch Trailer</button>
                     </div>
                 </li>
@@ -92,7 +87,6 @@
                     <img src="../images/madden_04.jpeg" alt="madden nfl 2004 poster">
                     <div class="carousel-item-description">
                         <h3>Madden NFL 2004</h3>
-                        <p>description</p>
                         <button class="open-trailer-btn" data-modal-target='#modal7'>Watch Trailer</button>
                     </div>
                 </li>
@@ -103,35 +97,31 @@
     <section class="modals">
         <div class="modal" id="modal1">
             <div class="modal-header">
-                <h3 class="modal-title">title</h3>
-                <button data-close-modal class="close-btn">&times;</button>
+                <button data-close-modal class="close-btn"><img src="../images/x.svg" alt="close button"></button>
             </div>
             <div class="modal-body">
-                <iframe class="video-player" width="560" height="315" src="https://www.youtube.com/embed/lSkiUA6WCAE?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe class="video-player" width="560" height="315" src="https://www.youtube.com/embed/H6EqWNpS39o?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
         <div class="modal" id="modal2">
             <div class="modal-header">
-                <h3 class="modal-title"></h3>
-                <button data-close-modal class="close-btn">&times;</button>
+                <button data-close-modal class="close-btn"><img src="../images/x.svg" alt="close button"></button>
             </div>
             <div class="modal-body">
-                <iframe class="video-player" width="560" height="315" src="https://www.youtube.com/embed/lSkiUA6WCAE?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe class="video-player" width="560" height="315" src="https://www.youtube.com/embed/1pRvXAmuoCo?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
         <div class="modal" id="modal3">
             <div class="modal-header">
-                <h3 class="modal-title">title</h3>
-                <button data-close-modal class="close-btn">&times;</button>
+                <button data-close-modal class="close-btn"><img src="../images/x.svg" alt="close button"></button>
             </div>
             <div class="modal-body">
-                <iframe class="video-player" width="560" height="315" src="https://www.youtube.com/embed/lSkiUA6WCAE?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe class="video-player" width="560" height="315" src="https://www.youtube.com/embed/S7-fbAX5srY?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
         <div class="modal" id="modal4">
             <div class="modal-header">
-                <h3 class="modal-title"></h3>
-                <button data-close-modal class="close-btn">&times;</button>
+                <button data-close-modal class="close-btn"><img src="../images/x.svg" alt="close button"></button>
             </div>
             <div class="modal-body">
                 <iframe class="video-player" width="560" height="315" src="https://www.youtube.com/embed/9mXrVQuTiWA?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -139,29 +129,26 @@
         </div>
         <div class="modal" id="modal5">
             <div class="modal-header">
-                <h3 class="modal-title"></h3>
-                <button data-close-modal class="close-btn">&times;</button>
+                <button data-close-modal class="close-btn"><img src="../images/x.svg" alt="close button"></button>
             </div>
             <div class="modal-body">
-                <iframe class="video-player" width="560" height="315" src="https://www.youtube.com/embed/lSkiUA6WCAE?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe class="video-player" width="560" height="315" src="https://www.youtube.com/embed/f7PizLICibk?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
         <div class="modal" id="modal6">
             <div class="modal-header">
-                <h3 class="modal-title"></h3>
-                <button data-close-modal class="close-btn">&times;</button>
+                <button data-close-modal class="close-btn"><img src="../images/x.svg" alt="close button"></button>
             </div>
             <div class="modal-body">
-                <iframe class="video-player" width="560" height="315" src="https://www.youtube.com/embed/lSkiUA6WCAE?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe class="video-player" width="560" height="315" src="https://www.youtube.com/embed/Kn_QEl5cZ2k?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
         <div class="modal" id="modal7">
             <div class="modal-header">
-                <h3 class="modal-title">title</h3>
-                <button data-close-modal class="close-btn">&times;</button>
+                <button data-close-modal class="close-btn"><img src="../images/x.svg" alt="close button"></button>
             </div>
             <div class="modal-body">
-                <iframe class="video-player" width="560" height="315" src="https://www.youtube.com/embed/lSkiUA6WCAE?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe class="video-player" width="560" height="315" src="https://www.youtube.com/embed/PuiCUhDc5pw?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
         <div id="overlay" class=""></div>

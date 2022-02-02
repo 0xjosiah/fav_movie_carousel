@@ -12,10 +12,12 @@ const videoPlayers = document.querySelectorAll('.video-player')
 
 function btnDown(btn) {
     btn.classList.add('btn-click')
+    btn.children[0].style.transform = 'scale(.95)'
 }
 
-function btnUp (btn) {
+function btnUp(btn) {
     btn.classList.remove('btn-click')
+    btn.children[0].style.transform = 'scale(1)'
 }
 
 nextBtn.addEventListener('mousedown', function() {btnDown(this)})
@@ -23,11 +25,14 @@ nextBtn.addEventListener('mouseup', function() {btnUp(this)})
 prevBtn.addEventListener('mousedown', function() {btnDown(this)})
 prevBtn.addEventListener('mouseup', function() {btnUp(this)})
 
+
 function hideAllCards() {
     for (let card of carouselItems) {
         card.classList.remove('next')
         card.classList.remove('prev')
         card.classList.remove('carousel-item-visible')
+        let carouselItemDescription = card.children[1]
+        carouselItemDescription.classList.remove('render-carousel-item-description')
     }
 }
 
@@ -40,8 +45,15 @@ nextBtn.addEventListener('click', function() {
     } else {
         cardPosition++
     }
-    carouselItems[cardPosition].classList.add('next')
+    renderCard(cardPosition, 'next')
 })
+
+function renderCard(position, direction) {
+    carouselItems[position].classList.add(direction)
+    let carouselItemDescription = carouselItems[position].children[1]
+    carouselItemDescription.classList.add('render-carousel-item-description')
+
+}
 
 prevBtn.addEventListener('click', function() {
     hideAllCards()
@@ -50,7 +62,7 @@ prevBtn.addEventListener('click', function() {
     } else {
        cardPosition--
     } 
-    carouselItems[cardPosition].classList.add('prev')
+    renderCard(cardPosition, 'prev')
 })
 
 function titleCase(str) {
@@ -71,6 +83,7 @@ function getCarouselItemNames (obj) {
 
 searchBar.addEventListener('mouseover', function () {
     searchInput.classList.add('search-field-appear')
+    
 })
 
 searchBar.addEventListener('mouseleave', function () {
